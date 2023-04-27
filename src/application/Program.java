@@ -39,7 +39,7 @@ public class Program {
 			else if (ch == 'u') {
 				System.out.print("Data de fabricacao (DD/MM/YYYY): ");
 				LocalDate date = LocalDate.parse(sc.next(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-				UsedProduct usedImport = new UsedProduct(name, price, date);
+				list.add(new UsedProduct(name, price, date));
 			}
 			else{
 				System.out.print("Customs fee: ");
@@ -50,7 +50,9 @@ public class Program {
 		
 		System.out.println();
 		System.out.println("PRICE TAGS:");
-		System.out.println(list);
+		for (Product prod : list) {
+			System.out.println(prod.priceTag());
+		}
 		
 		sc.close();
 	}
